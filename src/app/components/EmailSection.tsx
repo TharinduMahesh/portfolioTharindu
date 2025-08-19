@@ -40,7 +40,7 @@ const EmailSection = () => {
       <div>
         <h5 className='text-xl font-bold text-white my-2'>Let's Connect</h5>
         <p className='text-[#ADB7BE] mb-4 max-w-md'>
-          I'm currently looking for new opportunities and collaborations.
+            I&apos; currently looking for new opportunities and collaborations.
           If you have a project in mind or just want to say hello, feel free to reach out!
         </p>
         <div className='socials flex flex-row gap-2'>
