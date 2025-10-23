@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/google": "^2.0.23",
+    "@google/genai": "^1.26.0",
     "@heroicons/react": "^2.2.0",
     "@react-email/components": "^0.5.0",
     "@react-email/render": "^1.4.0",
+    "ai": "^5.0.77",
     "framer-motion": "^12.23.24",
     "geist": "^1.5.1",
     "next": "^15.5.6",
