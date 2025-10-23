@@ -1,7 +1,7 @@
 // src/components/Navbar.tsx
 "use client";
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import Link from 'next/link'; // Make sure this is imported
 import NavLink from './NavLink';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverLay from './MenuOverLay';
@@ -9,10 +9,17 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/#about', label: 'About' },
+  { href: '/#about', label: 'About' }, // FIX: Changed back to full paths to align with the active logic
   { href: '/#projects', label : 'Projects' },
   { href: '/#contact', label: 'Contact' },
 ];
+
+// Helper function for hard refresh
+const forceHardRefresh = () => {
+  if (typeof window !== 'undefined' && window.location.pathname === '/') {
+      window.location.reload();
+  }
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,10 +33,9 @@ const Navbar = () => {
   // ---------------------
 
   useEffect(() => {
-    // Close mobile menu on path change
     setIsOpen(false);
     
-    // Logic to determine scroll position
+    // Logic to determine scroll position (kept for active state logic)
     const handleScroll = () => {
       setIsScrolledToTop(window.scrollY < 50);
     };
@@ -38,10 +44,8 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [pathname]);
   
-  // *** CRITICAL MOBILE FIX: Scroll Lock ***
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
-    // Clean up on component unmount
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -50,16 +54,16 @@ const Navbar = () => {
   return (
     <nav className='fixed top-0 left-0 right-0 z-50 bg-[#121212] bg-opacity-95 backdrop-blur-sm shadow-xl h-20 md:h-24 flex items-center transition-shadow duration-300'> 
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 w-full">
-        {/* LOGO LINK - Forces Hard Refresh */}
-        <a 
+        {/* FIX 1: Change to <Link> and use onClick for hard refresh (Fixes Logo Errors) */}
+        <Link 
           href="/" 
           className="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent hover:drop-shadow-lg transition-all duration-300"
-          onClick={() => window.location.reload()}
+          onClick={forceHardRefresh}
         >
           PortFolio.
-        </a>
-        
-        {/* Mobile Menu Button */}
+        </Link>
+        </div>
+        {/* Mobile Menu Button - (Omitted for brevity) */}
         <div className='mobile-menu block md:hidden'>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -75,15 +79,16 @@ const Navbar = () => {
         <div className='menu hidden md:block md:w-auto' id='navbar'>
           <ul className="flex p-4 md:p-0 flex-row md:space-x-8 mt-0">
             {navLinks.map((link) => (
+              // FIX 2: Change to <Link> and use onClick for hard refresh on 'Home' (Fixes Desktop Link Errors)
               link.href === '/' ? (
                 <li key={link.href}>
-                  <a
+                  <Link // Changed from <a>
                     href="/"
-                    onClick={() => window.location.reload()}
+                    onClick={forceHardRefresh}
                     className={`${baseClasses} ${pathname === '/' ? activeClasses : inactiveClasses}`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ) : (
                 <NavLink
@@ -97,30 +102,23 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
-      </div>
       
-      {/* 
-        *** MOBILE MENU OVERLAY: The definitive fix for full screen on mobile ***
-        Key: fixed inset-0 z-[60] for full screen coverage above everything.
-      */}
+      {/* Mobile Overlay (Omitted for brevity) */}
       {isOpen && (
         <div className='fixed inset-0 z-[60] bg-[#121212] flex flex-col transition-opacity duration-300 ease-in-out'> 
-            {/* Header for Close Button/Logo - Solid background and fixed height */}
             <div className='flex justify-between items-center px-4 h-20 md:h-24 bg-[#121212] shadow-lg'> 
-                 {/* Re-display the logo */}
-                 <a 
+                 <Link // Changed from <a>
                     href="/" 
                     className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent"
-                    onClick={() => { setIsOpen(false); window.location.reload(); }}
+                    onClick={() => { setIsOpen(false); forceHardRefresh(); }} // Combined logic
                  >
                     PortFolio.
-                </a>
+                </Link>
                 <button onClick={() => setIsOpen(false)} className='text-white p-2'>
                     <XMarkIcon className='h-8 w-8 text-pink-500 hover:text-white' />
                 </button>
             </div>
             
-            {/* Menu Links Area - Fills the rest of the screen and centers content */}
             <div className="flex-grow overflow-y-auto flex items-center justify-center">
                <MenuOverLay links={navLinks} currentPath={pathname} /> 
             </div>
