@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans"; // Corrected import for Geist
 import { GeistMono } from "geist/font/mono"; // Corrected import for Geist
 import "./globals.css";
-import AIChatbot from "./components/AIChatbot";
 
 // Import your components for the global layout
 import Navbar from "./components/Navbar";
@@ -44,7 +43,6 @@ export default function RootLayout({
           </div>
           <Footer />
         </div>
-        <AIChatbot /> 
       </body>
     </html>
   );
