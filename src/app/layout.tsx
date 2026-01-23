@@ -20,12 +20,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       {/* Apply Geist fonts and the general body styling.
         Added overflow-x-hidden for the definitive mobile overflow fix.
       */}
       <body
         className={`${GeistSans.className} ${GeistMono.className} bg-[#121212] text-white overflow-x-hidden`}
+        suppressHydrationWarning
       >
         <Navbar />
 

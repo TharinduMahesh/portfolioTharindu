@@ -14,22 +14,28 @@ type Props = {
 
 const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }: Props) => {
   return (
-    <div>
+    <div className="group rounded-2xl overflow-hidden bg-gradient-to-br from-[#181818] to-[#0a0a0a] border border-white/5 hover:border-purple-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2">
       <div
-        className='h-52 md:h-72 rounded-t-xl relative group'
-        style={{ background: `url(${imgUrl})`, backgroundSize: "cover" }}
+        className='h-52 md:h-64 relative overflow-hidden'
+        style={{ background: `url(${imgUrl})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
-<div className='overlay absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-85 transition-all duration-700'>          <Link href={gitUrl} className='h-10 w-10 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-purple-500 group/link'>
-            <CodeBracketIcon className='h-6 w-6 text-[#bbadbe] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-purple-500' />
+        <div className='absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60'></div>
+        <div className='overlay absolute inset-0 bg-gradient-to-br from-purple-900/90 to-pink-900/90 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 backdrop-blur-sm'>
+          <Link href={gitUrl} className='group/link'>
+            <div className='h-14 w-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-purple-500/30 hover:border-purple-400 hover:scale-110 transition-all duration-300 flex items-center justify-center'>
+              <CodeBracketIcon className='h-7 w-7 text-white' />
+            </div>
           </Link>
-          <Link href={previewUrl} className='h-10 w-10 border-2 relative rounded-full border-[#ADB7BE] hover:border-purple-500 group/link'>
-            <EyeIcon className='h-6 w-6 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group-hover/link:text-purple-500' />
+          <Link href={previewUrl} className='group/link'>
+            <div className='h-14 w-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-pink-500/30 hover:border-pink-400 hover:scale-110 transition-all duration-300 flex items-center justify-center'>
+              <EyeIcon className='h-7 w-7 text-white' />
+            </div>
           </Link>
         </div>
       </div>
-      <div className='text-white rounded-b-xl mt-3 bg-[#181818] py-6 px-4'>
-        <h5 className='text-xl font-semibold mb-2'>{title}</h5>
-        <p className='text-[#ADB7BE]'>{description}</p>
+      <div className='text-white py-6 px-5'>
+        <h5 className='text-xl font-bold mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-600 transition-all duration-300'>{title}</h5>
+        <p className='text-[#ADB7BE] text-sm leading-relaxed'>{description}</p>
       </div>
     </div>
   );

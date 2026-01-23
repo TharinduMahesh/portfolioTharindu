@@ -78,50 +78,60 @@ const Project = () => {
   };
 
   return (
-    <section id="projects" ref={ref}>
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
-      </h2>
+    <section id="projects" ref={ref} className="py-16 md:py-20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-center text-4xl md:text-5xl font-bold text-white mb-4">
+          My <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Projects</span>
+        </h2>
+        <p className="text-[#ADB7BE] text-base md:text-lg text-center mb-12 max-w-2xl mx-auto">
+          Explore my latest work and creative solutions
+        </p>
 
-      {/* Tag Buttons */}
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Web"
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Mobile"
-          isSelected={tag === "Mobile"}
-        />
-      </div>
+        {/* Tag Buttons */}
+        <div className="text-white flex flex-row justify-center items-center gap-3 py-6">
+          <ProjectTag
+            onClick={handleTagChange}
+            name="All"
+            isSelected={tag === "All"}
+          />
+          <ProjectTag
+            onClick={handleTagChange}
+            name="Web"
+            isSelected={tag === "Web"}
+          />
+          <ProjectTag
+            onClick={handleTagChange}
+            name="Mobile"
+            isSelected={tag === "Mobile"}
+          />
+        </div>
 
-      {/* Project Cards */}
-      <ul className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.map((project, index) => (
-          <motion.li
-            key={project.id}
-            variants={cardVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
-            <ProjectCard
-              title={project.title}
-              description={project.description}
-              imgUrl={project.imgUrl}
-              gitUrl={project.gitUrl}
-              previewUrl={project.previewUrl}
-            />
-          </motion.li>
-        ))}
-      </ul>
+        {/* Project Cards */}
+        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {filteredProjects.map((project, index) => (
+            <motion.li
+              key={project.id}
+              variants={cardVariants}
+              initial="initial"
+              animate={isInView ? "animate" : "initial"}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                imgUrl={project.imgUrl}
+                gitUrl={project.gitUrl}
+                previewUrl={project.previewUrl}
+              />
+            </motion.li>
+          ))}
+        </ul>
+      </motion.div>
     </section>
   );
 };

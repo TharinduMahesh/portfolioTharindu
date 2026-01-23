@@ -36,50 +36,45 @@ const AchievementSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px 0px" });
 
   return (
-    // REMOVED: px-8 xl:gap-16 xl:px-16. This div now spans the full width 
-    // of the container set in layout.tsx. Adjusted padding to my-12 for vertical separation.
     <motion.div
       ref={ref}
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="my-12 py-8 sm:py-16" 
+      className="my-16 py-8 sm:py-12" 
     >
-      {/* 
-        Inner Wrapper with Gradient Border. 
-        Note: The p-1 gives the border width.
-      */}
-      <div className="rounded-xl bg-gradient-to-br from-blue-600 via-purple-700 to-pink-500 p-[2px]">
-        {/* 
-          Content Wrapper: bg-[#121212] provides the inner color.
-          Added more padding inside to space content away from the border.
-          Adjusted the flex layout for better spacing control on small screens.
-        */}
-        <div className="bg-[#121212] rounded-xl py-8 px-4 sm:px-8 flex flex-wrap justify-between">
-          {achievementList.map((achievement, index) => {
-            const numericValue = parseInt(achievement.value.replace(/\D/g, ""), 10);
-            const postfix = achievement.value.replace(/\d+/g, "");
-            return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                // Tailwind classes for responsive spacing and center alignment
-                className="flex flex-col justify-center items-center w-1/2 sm:w-1/4 my-4 p-2 text-center"
-              >
-                <h2 className="text-4xl sm:text-5xl font-bold text-white flex items-baseline">
-                  <AnimatedNumbers
-                    key={isInView ? "numbers-active" : "numbers-inactive"} 
-                    animateToNumber={numericValue}
-                    fontStyle={{ fontSize: 40, color: "#fff" }}
-                    locale="en-US"
-                  />
-                  {/* Applied smaller font size on postfix for better visual balance */}
-                  <span className="ml-1 text-3xl sm:text-4xl">{postfix}</span> 
-                </h2>
-                <p className="text-[#ADB7BE] text-base sm:text-lg mt-1">{achievement.metric}</p>
-              </motion.div>
-            );
-          })}
+      <div className="rounded-2xl bg-gradient-to-br from-purple-600 via-pink-500 to-purple-600 p-[2px] shadow-2xl shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-500">
+        <div className="bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a] rounded-2xl py-10 px-6 sm:px-12 backdrop-blur-xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {achievementList.map((achievement, index) => {
+              const numericValue = parseInt(achievement.value.replace(/\D/g, ""), 10);
+              const postfix = achievement.value.replace(/\d+/g, "");
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="flex flex-col justify-center items-center text-center group relative"
+                >
+                  {/* Decorative background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 scale-105"></div>
+                  
+                  <div className="relative">
+                    <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black bg-gradient-to-br from-white to-gray-300 bg-clip-text text-transparent flex items-baseline justify-center mb-2">
+                      <AnimatedNumbers
+                        key={isInView ? "numbers-active" : "numbers-inactive"} 
+                        animateToNumber={numericValue}
+                        fontStyle={{ fontSize: 'inherit', fontWeight: 900 }}
+                        locale="en-US"
+                      />
+                      <span className="ml-1 text-4xl sm:text-5xl text-purple-400">{postfix}</span> 
+                    </h2>
+                    <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-3 rounded-full"></div>
+                    <p className="text-[#ADB7BE] text-sm sm:text-base font-semibold tracking-wide uppercase">{achievement.metric}</p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </motion.div>

@@ -4,31 +4,45 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    // Outer container with reduced opacity background and a full-width gradient border at the top
-    <footer className='border-t border-purple-500/30 text-white mt-12 bg-[#121212] bg-opacity-80 backdrop-blur-sm'>
+    <footer className='border-t border-white/5 text-white mt-16 bg-gradient-to-b from-[#0a0a0a]/50 to-[#0a0a0a] backdrop-blur-xl relative'>
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
         
-        {/*
-          This div creates the top gradient line, sitting right below the border-t.
-          Height: 1px, Full Width, Gradient Background.
-        */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
+        <div className='container mx-auto px-6 sm:px-12 py-10'> 
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+                {/* LOGO & Description */}
+                <div className="flex flex-col items-center md:items-start gap-3">
+                    <Link 
+                      href="/" 
+                      className="text-2xl md:text-3xl font-black tracking-tight bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 bg-clip-text text-transparent hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                    >
+                      <span className="text-3xl">✦</span>
+                      Tharindu
+                    </Link>
+                    <p className="text-[#ADB7BE] text-sm text-center md:text-left max-w-xs">
+                        Building digital experiences with passion and precision
+                    </p>
+                </div>
 
-        {/* Inner Content - The 'container' classes from layout.tsx ensure it aligns with the main content */}
-        {/* We use px-4 and mx-auto here *only* to ensure alignment if this component is used outside the main layout div */}
-        <div className='container mx-auto px-4 sm:px-8 py-8 flex flex-col md:flex-row justify-between items-center'> 
-            
-            {/* LOGO - Use the same gradient text as the Navbar for consistency */}
-            <Link 
-              href="/" 
-              className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent mb-4 md:mb-0 hover:drop-shadow-lg transition-all duration-300"
-            >
-              PortFolio.
-            </Link>
+                {/* Quick Links */}
+                <div className="flex gap-8">
+                    <div>
+                        <h4 className="text-white font-bold mb-3 text-sm">Quick Links</h4>
+                        <ul className="space-y-2 text-sm">
+                            <li><Link href="/#about" className="text-[#ADB7BE] hover:text-purple-400 transition-colors">About</Link></li>
+                            <li><Link href="/#skills" className="text-[#ADB7BE] hover:text-purple-400 transition-colors">Skills</Link></li>
+                            <li><Link href="/#projects" className="text-[#ADB7BE] hover:text-purple-400 transition-colors">Projects</Link></li>
+                            <li><Link href="/#contact" className="text-[#ADB7BE] hover:text-purple-400 transition-colors">Contact</Link></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
             {/* Copyright */}
-            <p className='text-slate-400 text-sm'>
-                &copy; {new Date().getFullYear()} All rights reserved. Developed by Tharindu Mahesh.
-            </p>
+            <div className="mt-8 pt-6 border-t border-white/5 text-center">
+                <p className='text-[#ADB7BE] text-sm'>
+                    © {new Date().getFullYear()} <span className="text-white font-semibold">Tharindu Mahesh</span>. All rights reserved.
+                </p>
+            </div>
         </div>
     </footer>
   )
