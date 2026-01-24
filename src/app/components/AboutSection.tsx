@@ -9,39 +9,34 @@ import { motion } from 'framer-motion'; // Import motion for animation
 // Corrected TabData structure
 const TAB_DATA = [
   {
-    title: 'Skills',
-    id: 'skills',
-    content: (
-      // Enhanced list styling for better readability and spacing
-      <ul className='list-none grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-lg'>
-        <li className='bg-[#181818] p-2 rounded-lg hover:text-purple-400 transition-colors'>Node.js</li>
-        <li className='bg-[#181818] p-2 rounded-lg hover:text-purple-400 transition-colors'>React</li>
-        <li className='bg-[#181818] p-2 rounded-lg hover:text-purple-400 transition-colors'>Next.js</li>
-        <li className='bg-[#181818] p-2 rounded-lg hover:text-purple-400 transition-colors'>TypeScript</li>
-        <li className='bg-[#181818] p-2 rounded-lg hover:text-purple-400 transition-colors'>Tailwind CSS</li>
-        <li className='bg-[#181818] p-2 rounded-lg hover:text-purple-400 transition-colors'>Express</li>
-        <li className='bg-[#181818] p-2 rounded-lg hover:text-purple-400 transition-colors'>MongoDB</li>
-      </ul>
-    ),
-  },
-  {
     title: 'Education',
     id: 'education',
     content: (
       <ul className='list-disc pl-5 space-y-3 text-lg'>
-        <li className='text-gray-300'>Bachelor of Science in Computer Science, <span className='text-white font-semibold'>XYZ University</span> (2018 - 2022)</li>
-        <li className='text-gray-300'>Master of Science in Software Engineering, <span className='text-white font-semibold'>ABC University</span> (2022 - Present)</li>
+        <li className='text-gray-300'>
+          <span className='text-white font-semibold'>B.Sc. (Hons) in Information Technology</span><br/>
+          University of Moratuwa <span className='text-purple-400'>(2023 - Present)</span><br/>
+          <span className='text-sm text-gray-400'>GPA: 3.47/4.0</span>
+        </li>
+        <li className='text-gray-300'>
+          <span className='text-white font-semibold'>GCE Advanced Level - Physical Science</span><br/>
+          Kegalu Vidyalaya, Kegalle <span className='text-purple-400'>(2021)</span><br/>
+          <span className='text-sm text-gray-400'>Combined Mathematics: B | Physics: B | Chemistry: B | Z-Score: 1.657</span>
+        </li>
       </ul>
     ),
   },
   {
-    title: 'Certification',
-    id: 'certification',
+    title: 'Achievements',
+    id: 'achievements',
     content: (
-      <ul className='list-disc pl-5 space-y-3 text-lg'>
-        <li className='text-gray-300'>Certified Full Stack Developer <span className='text-purple-400'>[View Credential]</span></li>
-        <li className='text-gray-300'>React.js Certification <span className='text-purple-400'>[View Credential]</span></li>
-        <li className='text-gray-300'>Node.js Certification <span className='text-purple-400'>[View Credential]</span></li>
+      <ul className='list-disc pl-5 space-y-2 text-base'>
+        <li className='text-gray-300'>SpiritX 2025 - Inter-University Development Competition</li>
+        <li className='text-gray-300'>Xcelerate 2025 - Team Innovexa (MoraSpirit 360)</li>
+        <li className='text-gray-300'>MoraXtreme 9.0 (2024) - Coding Competition Participant</li>
+        <li className='text-gray-300'>Committee Member - NFB Championship 2024 (IEEE)</li>
+        <li className='text-gray-300'>Volleyball Champion - Freshers&apos; Meet 2023</li>
+        <li className='text-gray-300'>FIT CodeRush 2023 - INTECS</li>
       </ul>
     ),
   },
@@ -55,7 +50,7 @@ const contentVariants = {
 
 
 const AboutSection = () => {
-  const [tab, setTab] = useState('skills');
+  const [tab, setTab] = useState('education');
   const [isPending, startTransition] = useTransition();
 
   const handleTabChange = (id: string) => {
@@ -100,12 +95,13 @@ const AboutSection = () => {
           >
             <h2 className='text-4xl font-bold mb-6 text-white'>About Me</h2>
             <p className='text-lg text-[#ADB7BE] leading-relaxed mb-6'>
-              I am a software engineer with a passion for building scalable web
-              applications. I specialize in full-stack development, focusing on
-              creating efficient and user-friendly interfaces. With a strong
-              foundation in both front-end and back-end technologies, I strive to
-              deliver high-quality solutions that meet the needs of users and
-              businesses alike.
+              I am a third-year IT undergraduate at the University of Moratuwa with a strong passion for 
+              Artificial Intelligence and Machine Learning. I specialize in developing intelligent, scalable 
+              applications using cutting-edge AI technologies including RAG systems, LangChain, LangGraph, 
+              and LLMs. My expertise spans full-stack development with React, Next.js, Python, and FastAPI, 
+              combined with deep learning frameworks for building autonomous multi-agent systems, conversational 
+              AI chatbots, and neural network architectures. I&apos;m driven to create innovative solutions that 
+              leverage AI to solve real-world problems and deliver exceptional user experiences.
             </p>
 
             {/* Container for the Tab Buttons */}

@@ -5,24 +5,34 @@ import { motion } from 'framer-motion';
 
 const skillCategories = [
   {
+    title: 'AI & Machine Learning',
+    icon: '🤖',
+    skills: ['RAG', 'FAISS', 'LangChain', 'LangGraph', 'LLMs', 'CNNs', 'RNN/LSTM', 'PyTorch', 'TensorFlow', 'Keras', 'HuggingFace']
+  },
+  {
     title: 'Programming Languages',
     icon: '</>',
-    skills: ['Java', 'Python', 'C', 'C#', 'JavaScript']
+    skills: ['Python', 'Java', 'C', 'C#', 'C++', 'JavaScript', 'TypeScript']
   },
   {
     title: 'Frontend Development',
-    icon: '</>',
-    skills: ['Angular', 'React', 'Next.js', 'Html', 'Tailwind CSS']
+    icon: '🎨',
+    skills: ['React', 'Next.js', 'Angular', 'Streamlit', 'HTML', 'CSS', 'Tailwind CSS', 'Framer Motion']
   },
   {
-    title: 'Backend & Database',
-    icon: '</>',
-    skills: ['ASP.NET', 'Spring Boot', 'MSSQL', 'MySQL', 'MongoDB', 'PostgreSQL']
+    title: 'Backend Development',
+    icon: '⚙️',
+    skills: ['Python', 'FastAPI', 'Flask', 'Node.js', 'ASP.NET', 'Spring Boot', 'Express']
+  },
+  {
+    title: 'Databases & Vector Stores',
+    icon: '💾',
+    skills: ['MongoDB', 'MySQL', 'MSSQL', 'PostgreSQL', 'Pinecone', 'FAISS']
   },
   {
     title: 'Tools & Workflow',
-    icon: '</>',
-    skills: ['Git', 'Github', 'Figma', 'Postman', 'JIRA', 'TestNG', 'Cisco Packet Tracer', 'Google Collab', 'Docker']
+    icon: '🛠️',
+    skills: ['Git', 'GitHub', 'ClickUp', 'Docker', 'Kubernetes', 'Figma', 'Postman', 'JIRA', 'VS Code', 'Google Colab']
   }
 ];
 

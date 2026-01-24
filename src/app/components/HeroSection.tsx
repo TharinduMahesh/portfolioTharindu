@@ -71,7 +71,7 @@ const HeroSection = () => {
               </motion.button>
             </Link>
 
-            <Link href="/your-cv.pdf" target="_blank" rel="noopener noreferrer" passHref>
+            <Link href="/tharindu_mahesh.pdf" download="tharindu_mahesh.pdf" target="_blank" rel="noopener noreferrer" passHref>
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}

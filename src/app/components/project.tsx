@@ -7,56 +7,65 @@ import { motion, useInView } from "framer-motion";
 const projectData = [
   {
     id: 1,
-    title: "Project One",
-    description: "This is a description of project one.",
+    title: "Autonomous Multi-Agent Market Intelligence System",
+    description: "Built an autonomous AI system with 4 specialized agents (Strategist, Field Agent, Librarian, Consultant) using Python, LangChain, and LangGraph. Features FAISS vector databases for dynamic RAG, SWOT analyses, and competitor matrices powered by Google Gemini 2.5 Flash with interactive Streamlit dashboard.",
     imgUrl: "/images/projects/1.jpg",
-    tag: ["All", "Web"],
-    gitUrl: "/",
+    tag: ["All", "AI"],
+    gitUrl: "https://github.com/tharindu-mahesh",
     previewUrl: "/",
   },
   {
     id: 2,
-    title: "Project Two",
-    description: "This is a description of project two.",
+    title: "AI Agent Bot for Cloud-Native Vehicle Service Platform",
+    description: "Implemented an intelligent customer service agent using Python, FastAPI, LangChain, and Google Gemini 2.5 Flash. Features hybrid AI with agentic tool use for real-time microservice integration and RAG pipeline with Pinecone for knowledge retrieval in a Kubernetes-orchestrated platform.",
     imgUrl: "/images/projects/2.jpg",
-    tag: ["All", "Mobile"],
-    gitUrl: "/",
+    tag: ["All", "AI", "Web"],
+    gitUrl: "https://github.com/tharindu-mahesh",
     previewUrl: "/",
   },
   {
     id: 3,
-    title: "Project Three",
-    description: "This is a description of project three.",
+    title: "Interactive AI-Powered Portfolio",
+    description: "Developed a full-stack portfolio using Next.js 15, React 19, and TypeScript with embedded AI chatbot powered by Google Gemini API. Features custom RAG-based assistant, programmatic email delivery via Resend API, Framer Motion animations, and seamless API route handling.",
     imgUrl: "/images/projects/3.jpg",
-    tag: ["All", "Web"],
-    gitUrl: "/",
+    tag: ["All", "Web", "AI"],
+    gitUrl: "https://github.com/tharindu-mahesh",
     previewUrl: "/",
   },
   {
     id: 4,
-    title: "Project Four",
-    description: "This is a description of project four.",
+    title: "Intelligent Medical Assistant Chatbot",
+    description: "AI medical assistant using LangChain and RAG architecture. Processes medical PDFs with RecursiveCharacterTextSplitter, embeds using HuggingFace's all-MiniLM-L6-v2, and indexes in Pinecone. Flask application integrates Google Gemini 2.5 Flash API for accurate medical responses.",
     imgUrl: "/images/projects/4.jpg",
-    tag: ["All", "Mobile"],
-    gitUrl: "/",
+    tag: ["All", "AI"],
+    gitUrl: "https://github.com/tharindu-mahesh",
     previewUrl: "/",
   },
   {
     id: 5,
-    title: "Project Five",
-    description: "This is a description of project five.",
+    title: "Deep CNN Emotion Recognition System",
+    description: "Binary CNN classifier using TensorFlow/Keras for happy/sad facial expression detection. Features TensorBoard monitoring and Streamlit deployment with real-time image upload and confidence scoring for accurate emotion analysis.",
     imgUrl: "/images/projects/5.jpg",
-    tag: ["All", "Web"],
-    gitUrl: "/",
+    tag: ["All", "AI"],
+    gitUrl: "https://github.com/tharindu-mahesh",
     previewUrl: "/",
   },
   {
     id: 6,
-    title: "Project Six",
-    description: "This is a description of project six.",
+    title: "Shakespearean Text Generation with RNN",
+    description: "Character-level RNN/LSTM trained on Shakespeare's corpus for poetic text generation. Features Streamlit interface with temperature-controlled sampling and custom seed prompt capabilities for creative text generation.",
     imgUrl: "/images/projects/6.jpg",
+    tag: ["All", "AI"],
+    gitUrl: "https://github.com/tharindu-mahesh",
+    previewUrl: "/",
+  },
+  {
+    id: 7,
+    title: "Tea Factory Supply Chain Management System",
+    description: "Full-stack Tea Factory Supply Chain Management System using Angular, ASP.NET, MSSQL, and Azure. Implemented role-based authentication with JWT, complete Supplier Payment & Incentive system with dynamic UI, custom toast notifications, and transactional finalization with secure audit trail.",
+    imgUrl: "/images/projects/7.jpg",
     tag: ["All", "Web"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/tharindu-mahesh",
     previewUrl: "/",
   },
 ];
@@ -101,13 +110,13 @@ const Project = () => {
           />
           <ProjectTag
             onClick={handleTagChange}
-            name="Web"
-            isSelected={tag === "Web"}
+            name="AI"
+            isSelected={tag === "AI"}
           />
           <ProjectTag
             onClick={handleTagChange}
-            name="Mobile"
-            isSelected={tag === "Mobile"}
+            name="Web"
+            isSelected={tag === "Web"}
           />
         </div>
 
