@@ -81,7 +81,12 @@
   2. Mr. Aruna Withanage - Co-Founder/CEO, Effectz.AI | aruna@effectz.ai | 077 347 8988`;
 
   // Convert incoming messages to Gemini format
-  const convertMessagesToGemini = (messages: any[]) => {
+  interface Message {
+    role: string;
+    content: string;
+  }
+
+  const convertMessagesToGemini = (messages: Message[]) => {
     return messages.map((message) => ({
       role: message.role === "user" ? "user" : "model",
       parts: [{ text: message.content }],
@@ -105,7 +110,7 @@
       ];
       
       // Call Gemini API with proper configuration
-      const response: any = await ai.models.generateContent({
+      const response = await ai.models.generateContent({
           model: "gemini-2.5-flash", 
           contents: contents,
           config: {

@@ -8,14 +8,14 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="lg:py-20 py-12 relative" id="home">
+    <section className="py-8 sm:py-12 lg:py-20 relative" id="home">
       {/* Background gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="grid grid-cols-1 sm:grid-cols-12 gap-8 sm:gap-12 items-center relative z-10">
         {/* Text Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -30,7 +30,7 @@ const HeroSection = () => {
             className="inline-block mb-4 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20"
           >          </motion.div> */}
 
-          <h1 className="text-white mb-6 text-4xl sm:text-5xl lg:text-7xl lg:leading-tight font-black tracking-tight">
+          <h1 className="text-white mb-4 sm:mb-6 text-3xl sm:text-5xl lg:text-7xl leading-tight lg:leading-tight font-black tracking-tight">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 animate-gradient">
               Hello, I&apos;m{" "}
             </span>
@@ -51,17 +51,17 @@ const HeroSection = () => {
               className="block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
             />
           </h1>
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-10 lg:text-xl leading-relaxed max-w-2xl mx-auto sm:mx-0">
+          <p className="text-[#ADB7BE] text-sm sm:text-base lg:text-lg mb-6 sm:mb-10 leading-relaxed max-w-2xl mx-auto sm:mx-0 px-2 sm:px-0">
             A passionate software engineer specializing in full-stack
             web development. Building scalable applications and
             crafting efficient, user-friendly interfaces that solve real-world problems.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center sm:justify-start">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center sm:justify-start px-2 sm:px-0">
             <Link href="/contact" passHref>
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 rounded-xl bg-gradient-to-br from-purple-600 via-pink-500 to-purple-600 hover:shadow-2xl hover:shadow-purple-500/50 text-white font-bold text-base w-full sm:w-auto transition-all duration-300 cursor-pointer relative overflow-hidden"
+                className="group px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-gradient-to-br from-purple-600 via-pink-500 to-purple-600 hover:shadow-2xl hover:shadow-purple-500/50 text-white font-bold text-sm sm:text-base w-full sm:w-auto transition-all duration-300 cursor-pointer relative overflow-hidden"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   Get in Touch
@@ -75,7 +75,7 @@ const HeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 rounded-xl bg-white/5 border-2 border-purple-500/50 backdrop-blur-sm hover:bg-purple-500/10 hover:border-purple-400 text-white font-bold text-base w-full sm:w-auto transition-all duration-300 cursor-pointer"
+                className="group px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-white/5 border-2 border-purple-500/50 backdrop-blur-sm hover:bg-purple-500/10 hover:border-purple-400 text-white font-bold text-sm sm:text-base w-full sm:w-auto transition-all duration-300 cursor-pointer"
               >
                 <span className="flex items-center justify-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,12 +89,12 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Image Section */}
-        <div className="col-span-12 sm:col-span-5 flex justify-center sm:justify-end mt-10 sm:mt-0">
+        <div className="col-span-12 sm:col-span-5 flex justify-center sm:justify-end mt-8 sm:mt-10 md:mt-0">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 p-1 w-[300px] h-[300px] lg:w-[480px] lg:h-[480px] max-w-full shadow-2xl shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-500"
+            className="relative rounded-full bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 p-1 w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] lg:w-[480px] lg:h-[480px] max-w-full shadow-2xl shadow-purple-500/30 hover:shadow-purple-500/50 transition-all duration-500"
           >
             <div className="relative w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-[#0a0a0a] to-[#1a1a1a] border-4 border-white/5">
               <Image

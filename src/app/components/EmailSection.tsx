@@ -39,7 +39,7 @@ const EmailSection = () => {
         const errorData = await response.json();
         setError(`Failed to send. Error: ${errorData.error || response.statusText}`);
       }
-    } catch (err) {
+    } catch {
       setError("An unexpected error occurred. Please try again later.");
     } finally {
       setIsSubmitting(false);
@@ -53,7 +53,7 @@ const EmailSection = () => {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8 }}
       id="contact"
-      className='grid md:grid-cols-2 my-16 py-20 gap-12 relative overflow-hidden'
+      className='grid md:grid-cols-2 my-12 sm:my-16 py-12 sm:py-20 gap-8 sm:gap-12 relative overflow-hidden'
     >
       {/* Background gradient effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -69,7 +69,7 @@ const EmailSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
+          <h2 className='text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4'>
             Let&apos;s <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Connect</span>
           </h2>
           <p className='text-[#ADB7BE] text-lg mb-8 max-w-md leading-relaxed'>
@@ -98,7 +98,7 @@ const EmailSection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl p-8 border border-white/10"
+          className="bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/10"
         >
           {emailSubmitted ? (
             <motion.div
@@ -112,39 +112,39 @@ const EmailSection = () => {
                 </svg>
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-              <p className="text-green-400 text-lg">Thank you for reaching out. I'll get back to you soon.</p>
+              <p className="text-green-400 text-lg">Thank you for reaching out. I&apos;ll get back to you soon.</p>
             </motion.div>
           ) : (
-            <form className='flex flex-col space-y-5' onSubmit={handleSubmit}>
+            <form className='flex flex-col space-y-4 sm:space-y-5' onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="email" className="text-white block mb-2 text-sm font-semibold">Your Email</label>
+                <label htmlFor="email" className="text-white block mb-2 text-xs sm:text-sm font-semibold">Your Email</label>
                 <input 
                   name="email" 
                   type="email" 
                   id="email" 
                   required 
-                  className="bg-[#0a0a0a] border border-white/10 placeholder-[#9CA2A9] text-gray-100 text-base rounded-xl block w-full p-4 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all outline-none" 
+                  className="bg-[#0a0a0a] border border-white/10 placeholder-[#9CA2A9] text-gray-100 text-sm sm:text-base rounded-xl block w-full p-3 sm:p-4 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all outline-none" 
                   placeholder="jacob@example.com" 
                 />
               </div>
               <div>
-                <label htmlFor="subject" className="text-white block mb-2 text-sm font-semibold">Subject</label>
+                <label htmlFor="subject" className="text-white block mb-2 text-xs sm:text-sm font-semibold">Subject</label>
                 <input 
                   name="subject" 
                   type="text" 
                   id="subject" 
                   required 
-                  className="bg-[#0a0a0a] border border-white/10 placeholder-[#9CA2A9] text-gray-100 text-base rounded-xl block w-full p-4 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all outline-none" 
+                  className="bg-[#0a0a0a] border border-white/10 placeholder-[#9CA2A9] text-gray-100 text-sm sm:text-base rounded-xl block w-full p-3 sm:p-4 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all outline-none" 
                   placeholder="Let's collaborate on..." 
                 />
               </div>
               <div>
-                <label htmlFor="message" className="text-white block mb-2 text-sm font-semibold">Message</label>
+                <label htmlFor="message" className="text-white block mb-2 text-xs sm:text-sm font-semibold">Message</label>
                 <textarea 
                   name="message" 
                   id="message" 
                   rows={5}
-                  className="bg-[#0a0a0a] border border-white/10 placeholder-[#9CA2A9] text-gray-100 text-base rounded-xl block w-full p-4 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all outline-none resize-none" 
+                  className="bg-[#0a0a0a] border border-white/10 placeholder-[#9CA2A9] text-gray-100 text-sm sm:text-base rounded-xl block w-full p-3 sm:p-4 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all outline-none resize-none" 
                   placeholder="Your message here..." 
                 />
               </div>
@@ -154,7 +154,7 @@ const EmailSection = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSubmitting}
-                className={`group relative bg-gradient-to-br from-purple-600 via-pink-500 to-purple-600 text-white font-bold py-4 px-8 rounded-xl w-full transition-all duration-300 overflow-hidden ${
+                className={`group relative bg-gradient-to-br from-purple-600 via-pink-500 to-purple-600 text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-xl w-full text-sm sm:text-base transition-all duration-300 overflow-hidden ${
                   isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-2xl hover:shadow-purple-500/50 cursor-pointer'
                 }`}
               >

@@ -33,9 +33,9 @@ const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }: Props) 
           </Link>
         </div>
       </div>
-      <div className='text-white py-6 px-5'>
-        <h5 className='text-xl font-bold mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-600 transition-all duration-300'>{title}</h5>
-        <p className='text-[#ADB7BE] text-sm leading-relaxed'>{description}</p>
+      <div className='text-white py-4 sm:py-6 px-4 sm:px-5'>
+        <h5 className='text-lg sm:text-xl font-bold mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-600 transition-all duration-300'>{title}</h5>
+        <p className='text-[#ADB7BE] text-xs sm:text-sm leading-relaxed'>{description}</p>
       </div>
     </div>
   );

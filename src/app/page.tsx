@@ -5,13 +5,12 @@ import AboutSection from "./components/AboutSection";
 import SkillsSection from "./components/SkillsSection";
 import Project from "./components/project";
 import EmailSection from "./components/EmailSection";
-import Footer from "./components/Footer"; // Keep Footer here
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-[#121212]">
       <Navbar />
-      <div className="container mx-auto px-12 pt-20 md:pt-24 py-4 flex-grow"> {/* pt- matches Navbar height */}
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 pt-20 md:pt-24 py-4 flex-grow"> {/* pt- matches Navbar height */}
         
         <HeroSection />
         

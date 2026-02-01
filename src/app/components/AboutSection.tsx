@@ -51,7 +51,7 @@ const contentVariants = {
 
 const AboutSection = () => {
   const [tab, setTab] = useState('education');
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const handleTabChange = (id: string) => {
     startTransition(() => {
@@ -63,11 +63,11 @@ const AboutSection = () => {
 
   return (
     // Added margin-y for separation and ID for navigation
-    <section className="text-white my-12" id="about">
+    <section className="text-white my-8 sm:my-12" id="about">
       {/* Outer gradient wrapper for the attractive border effect */}
       <div className="rounded-xl bg-gradient-to-br from-purple-500 via-blue-500 to-pink-500 p-[2px]">
         {/* Inner div for the actual content, acting as the background */}
-        <div className='bg-[#121212] rounded-xl md:grid md:grid-cols-2 gap-8 items-center p-8 xl:gap-16 sm:p-12'> {/* Reduced inner padding for consistency */}
+        <div className='bg-[#121212] rounded-xl md:grid md:grid-cols-2 gap-6 md:gap-8 items-center p-6 sm:p-8 xl:gap-16 sm:p-12'> {/* Reduced inner padding for consistency */}
           
           {/* IMAGE BLOCK */}
           <motion.div
@@ -91,10 +91,10 @@ const AboutSection = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8 }}
-            className='mt-8 md:mt-0 text-left flex flex-col h-full'
+            className='mt-6 md:mt-0 text-left flex flex-col h-full'
           >
-            <h2 className='text-4xl font-bold mb-6 text-white'>About Me</h2>
-            <p className='text-lg text-[#ADB7BE] leading-relaxed mb-6'>
+            <h2 className='text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-white'>About Me</h2>
+            <p className='text-sm sm:text-base md:text-lg text-[#ADB7BE] leading-relaxed mb-4 sm:mb-6'>
               I am a third-year IT undergraduate at the University of Moratuwa with a strong passion for 
               Artificial Intelligence and Machine Learning. I specialize in developing intelligent, scalable 
               applications using cutting-edge AI technologies including RAG systems, LangChain, LangGraph, 

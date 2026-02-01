@@ -87,22 +87,22 @@ const Project = () => {
   };
 
   return (
-    <section id="projects" ref={ref} className="py-16 md:py-20">
+    <section id="projects" ref={ref} className="py-12 sm:py-16 md:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-center text-4xl md:text-5xl font-bold text-white mb-4">
+        <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4 px-4">
           My <span className="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Projects</span>
         </h2>
-        <p className="text-[#ADB7BE] text-base md:text-lg text-center mb-12 max-w-2xl mx-auto">
+        <p className="text-[#ADB7BE] text-sm sm:text-base md:text-lg text-center mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
           Explore my latest work and creative solutions
         </p>
 
         {/* Tag Buttons */}
-        <div className="text-white flex flex-row justify-center items-center gap-3 py-6">
+        <div className="text-white flex flex-row justify-center items-center gap-2 sm:gap-3 py-4 sm:py-6">
           <ProjectTag
             onClick={handleTagChange}
             name="All"
@@ -121,7 +121,7 @@ const Project = () => {
         </div>
 
         {/* Project Cards */}
-        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <ul className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {filteredProjects.map((project, index) => (
             <motion.li
               key={project.id}

@@ -23,15 +23,8 @@ const forceHardRefresh = () => {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
-  const [isScrolledToTop, setIsScrolledToTop] = useState(true)
+  const [, setIsScrolledToTop] = useState(true)
   const [activeHash, setActiveHash] = useState<string>("")
-
-  const baseClasses =
-    "block py-2 px-4 sm:text-base rounded-lg transition-all duration-300 font-semibold tracking-wide relative"
-  const activeClasses =
-    "text-white bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 shadow-lg shadow-purple-500/20"
-  const inactiveClasses =
-    "text-[#ADB7BE] hover:text-white hover:bg-white/5 hover:border hover:border-white/10"
 
   useEffect(() => {
     setIsOpen(false)
